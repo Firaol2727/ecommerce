@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+    <!-- <link rel="stylesheet" href="css/Reg_All.ejs" /> -->
+
+    <title>About</title>
+
+  </head>
+
+  <body>
+    <%-include('./css/adminpagecss.ejs') %>
+    <nav>
+
+      <div class="heading">
+      
+        <h4> SALES PERSON  Manager Page </h4>
+      
+      </div>
+      
+      <ul class="nav-links">
+      
+        <li><a class="active" href="./adminpage">Add Product</a></li>
+      
+        <li><a  href="./update_product">Update Product</a></li>
+      
+        <li><a href="./selled">Selled </a></li>
+        <li>
+          <div class="dropdown">
+            <img src="img/user.png" alt="User_" width="50" height="50" class="dropbtn">
+            <div class="dropdown-content">
+              <a href="./changepassword">Change password</a>
+              <a href="#">change profile photo</a>
+            </div>
+        </li>
+      </ul>
+</nav>
+    <form action="./product_register" method="POST" enctype="multipart/form-data"  >
+        <div id="department_form">  
+            <header id="department_title"> PRODUCT REQUIRED </header>
+            <div id="dud">
+                <p>ProductName :  <input type="text" name="pname" id="pname" class="input" required> </p> <br>
+                <p>Price       : <input type="Number" class="input" name="price" id="price" required> </p> <br>
+                <p>Picture  : <input type="file" name="picture" id="picture" required></p> <br>
+                <p>Amount : <input type="text"  class="input" name="amount" id="amount" required> </p>
+                <p>Categories</p>
+                <input type="radio" id="boutique" name="category" value="2" required>
+                <label for="boutique">clothes and Shoes</label><br>
+                <input type="radio" id="electronics" name="category" value="1" required>
+                <label for="electronics">Electronics</label><br>
+                <input type="radio" id="cosmotics" name="category" value="3" required>
+                <label for="cosmotics">Cosmotics</label><br>
+                <p> Description </p>
+                <textarea name="description" id="description" cols="40" rows="10"></textarea>
+                <input type="submit" value="Submit" id="register_button">
+        </div>
+        
+    </form>
+    <script >
+    </script>
+
+  </body>
+
+</html>
+

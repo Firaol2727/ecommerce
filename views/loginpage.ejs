@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login</title>
+</head>
+<body >
+    <%-include('./css/frontpagecss.ejs') %>
+    <div id="div2">
+        <p style="color: rgb(228, 239, 152);"> Hulu Mulu Market </p>
+    </div>
+    <div id="div1">
+        <h3>Customer </h3>
+        <p id="create">Sign in</p>
+        <hr>
+        <form method="get" action="/admin">
+            <button id="google" type="submit">Admin Sign in </button>
+        </form>
+        <form method="get" action="/commodities">
+            <button id="facebook" type="submit">Continue without Logging </button>
+        </form>
+        
+        <p id="or">-OR-</p>
+        <form action="/customer_verification" id="form" method="POST">
+                <p id="fname">username</p>
+                <input id="username" type="email" placeholder="firstname" name="username" required>
+                <p id="pword">password</p>
+                <input id="password" type="password" placeholder="******" name="password" required>
+            <button id="button" type="submit">Sign in</button>
+
+            <% if(error) {%> 
+                <p id="err_username"></p>
+                <%}%>
+              
+        </form>
+        <a href="/customer/signup" id="signup"> Sign Up</a>
+    </div>
+    <script>
+       
+    </script>
+
+</body>
+</html>

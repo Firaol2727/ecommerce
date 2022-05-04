@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    nav{
+        position: absolute;
+        width:98%;
+        height: 70px;
+        background-color: rgb(23, 23, 96);
+    }
+    nav>p{
+        position:absolute;
+        left:2px;
+        width:20%;
+        color: white;
+        float: left;
+    
+    }
+    nav>ul{
+        position: inherited;
+        float: right;
+        left: 40%;
+        right:50px;
+        /* width: 50%; */
+        height: 100%;
+        background-color: transparent;
+    }
+    nav>ul>li{
+        margin-left: 10px;
+        float: right;
+        margin-right: 5px;
+        color:white;
+        /* font-size: larger;
+        font-size: 16px; */
+    }
+    nav>ul>li>a{
+        /* margin-left: 10px; */
+        /* float: right; */
+        /* margin-right: 5px; */
+        color:white;
+        font-size: larger;
+        font-size: 16px;
+
+    }
+    nav>ul>li>a:hover{
+        color: rgb(167, 211, 56);
+    }
+    #back{
+        color: white;
+    }
+    #back:hover{
+        color: red;
+    }
+    #big{
+        position: absolute;
+        top:20%;
+        left:15%;
+        width: 70%;
+        border: solid 1px;
+        height:500px;
+        background-color: limegreen;
+    }
+    #big>h2{
+        position: relative;
+        left:10%;
+        margin: 20px;
+    }
+    #big>hr{
+        width: 70%;
+    }
+    button:hover{
+        color: red;
+        background-color: rgb(117, 117, 226);
+        
+    }
+    </style>
+</head>
+<body>
+  
+    <nav>
+        <h1 style="
+            position: absolute;
+        left: 50px;
+        color: white;
+        "><a href="/customer/commodities"  id="back"><-Back</a></h1>
+        <h1 style="position: absolute;
+        left: 50%;
+        color: white;
+    "> MY PAGE </h1>
+        <ul>
+        <li style="   list-style: none;"> <a href="/customer/me/profile_picture"><img src="img/user.png" alt="User" style="width: 70px; height: 70px; border: solid 1px black;"></a></li>
+        <li style="   list-style: none;"><a href="/customer/me/logout"> Log out </a> </li>
+        <li style="   list-style: none;"><a href="/customer/me/changepassword"> Change PassWord </a> </li>
+
+        </ul>
+    </nav>
+    <%if(data){ %> 
+    <div id="big">
+        <h2>Name : <%=data.fullname %> </h2> <br>
+        <h2>Phone No :<%=data.PhoneNo %></h2><br>
+        <h2>Email :<%=data.email %> </p> <br>
+        <h2>Location : <%=data.Location %></h2> <br>
+        <h2>Gender : <%=data.Gender %></h2>
+    </div>
+    
+    <%}%>
+    <%if(element.length>0) { %> 
+    <div style=" position:fixed; border: 1cm;
+    background-color: rgb(76, 78, 81);
+    width: 600px; height: 600px;
+    left: 30% ;top:10%;
+    ">
+    <h1 style="color: rgb(225, 255, 0); text-align: center;">Change Password</h1>
+    
+    <form action="./password_verify" method="POST">
+        <p style="  position : absolute ;
+                    color: white;
+                    left: 20%;
+                    top: 20%;
+                    "> Oldpassword : </p>
+        <br>
+        <input type="text" name="Oldpassword" id="id"
+                style="position : absolute ;
+                color: rgb(16, 15, 15);
+                left: 40%;
+                top: 20%;
+                width: 300px;
+                "
+                required>
+
+        <p style="  position : absolute ;
+                    color: rgb(221, 212, 212);
+                    left: 20%;
+                    top:30%;
+                    "> Newpassword : </p>
+        <br>
+    <input type="text" name="newpassword" id="id"
+            style="position : absolute ;
+            color: rgb(13, 12, 12);
+            left: 40%;
+            top: 30%;
+            width: 300px;
+            "
+            required>
+
+    <p style="  position : absolute ;
+                color: rgb(221, 212, 212);
+                left: 20%;
+                top: 40%;
+                ">confirmpassword  : </p>
+    <br>
+    <input type="text" name="confirmpassword" id="id"
+            style="position : absolute ;
+            color: rgb(5, 1, 1);
+            left: 40%;
+            top: 40%; 
+            width: 300px;"
+            required>
+    <button type="submit" style="
+            position : absolute ;
+            color: rgb(174, 59, 6);
+            left: 40%;
+            top: 70%;
+            font-weight: 200;
+            height: 50px;
+    ">  change password</button>
+    <%}%>
+        </form>
+    </div>
+</body>
+</html>

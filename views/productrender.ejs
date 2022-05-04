@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/homecss.css">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(253, 232, 204);">
+    <%- include('./css/homecss.ejs') %>
+    <header>
+        HULU Mulu Market Order and Buy EVERYTHINg!!
+    </header>
+    <div id="navBar"> 
+        <li action="./me" method="GET"><a href="/customer/me"> <button class="button" onclick="submit" style="list-style: georgian; color: rgb(242, 236, 237);" >Me</button> </a></li>
+        <li action="../" method="GET" > <a href="/customer/commodities"><button class="button"  id="active"  onclick="submit" style="list-style: georgian; color: rgb(242, 250, 250); ">All</button> </a></li>             
+        <li action="./electronics" method="GET"><a href="/customer/commodities/electronics"> <button class="button"  onclick="submit"  style="list-style: georgian; color: rgb(242, 250, 250);" >Electronics</button> </a></li>
+        <li action="./boutique" method="GET"> <a href="/customer/commodities/boutique"><button class="button"  onclick="submit" style="list-style:georgian; color: rgb(242, 250, 250);">Boutique</button> </a></li>
+        <li action="./cosmotics" method="GET"><a href="/customer/commodities/cosmotics"> <button class="button"  onclick="submit" style="list-style: georgian; color: rgb(242, 250, 250); ">Cosmotics</button> </a></li>
+
+    </div>
+    <% if(data) { %> 
+        <% data.forEach((element) => {%>  
+               
+               <% element.Products.forEach(subelement=>{ %>
+                   
+                    <div class="form" >
+                        <div class="img">
+                            <img alt="notfound" src="data:image/png;base64,<%=subelement.picture%>" style=" position:absolute; width:100%;height:100%;">
+                        </div>
+                        <div class="name">
+                            <%=subelement.name%>
+                        </div>
+                        <div class="price">
+                            <p>PRICE - <%=subelement.price%>  </p> 
+                        </div>
+
+                        <form  action="/customer/item/<%=subelement.name%>/<%=subelement.id%>" method="GET"  class="formItem">
+                            <button type="submit"  class="formItem">
+                                BUY
+                            </button>      
+                        </form>
+                    </div>
+            <%})%>
+            <%})%>
+        <%}%> 
+</body>
+</html>

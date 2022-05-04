@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/purchasedcss.css">
+    <title>Manager</title>
+</head>
+<body >
+    <%-include('./css/purchasedcss.ejs') %>
+    <%-include('./css/adminpagecss.ejs') %>
+    <header>
+        <nav >
+            <div class="heading">
+                <h4> SALES PERSON  Manager Page </h4>   
+            </div>  
+            <ul class="nav-links">
+                <li><a  href="./adminpage">Add Product</a></li>
+                <li><a  href="./update_product">Update Product</a></li>
+                <li><a href="./selled" class="active">Selled </a></li>
+                <li>
+                <div class="dropdown">
+                    <img src="img/user.png" alt="User_" width="50" height="50" class="dropbtn">
+                    <div class="dropdown-content">
+                    <a href=" ./changepassword">Change password</a>
+                    <a href="#">change profile photo</a>
+                    </div>
+                </li>
+            </ul>
+      </nav>
+    </header>
+    <% if(data) {%> 
+        
+            <table id="customers">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>ProductName</th>
+                    <th>Amount</th>
+                    <th>TotalFee</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                </tr>
+                <%data.forEach((elements)=>{%>
+                <tr>
+                    <td><%=elements.id%></td>
+                    <td><%=elements.Customer.fname+" " +elements.Customer.lname%></td>
+                    <td><%=elements.Product.name%></td>
+                    <td><%=elements.amount%></td>
+                    <td><%=elements.fee %></td>
+                    <td><%=elements.date%></td>
+                    <td><%=elements.Customer.Location%></td>
+                </tr> 
+ 
+        <%})%>
+
+    </table>
+
+    <%}%>
+<!-- 
+    <footer>
+        res.render('purchasedtable',{data}) <h2>FOOTER</h2>
+    </footer> -->
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#div1{
+    position:fixed; border: 1cm;
+    background-color: rgb(76, 78, 81);
+    width: 600px; height: 600px;
+    left: 30% ;top:10%;
+}
+
+#namep{
+    position : absolute ;
+    color: rgb(246, 246, 246);
+    left: 20%;
+    top: 10%;
+}
+#div2{
+    position:fixed; border: 1cm;
+    background-color: rgb(76, 78, 81);
+    width: 300px; height: 200px;
+    left: 10% ;top:10%;
+    color: rgb(246, 246, 246);
+}
+
+.p{
+    position: relative;
+    color: white;
+    width: 50%;
+    left:50px;
+    top:15px;
+    margin:10px
+}
+#div1>form{
+    position: absolute;
+    width: 100%; height: 100%;
+}
+#div2.form.button:hover{
+
+background-color: rgb(235, 140, 72);
+}
+#div1>form>button:hover{
+
+    background-color: rgb(235, 140, 72);
+}
+.in{
+    position : absolute ;
+    color: rgb(43, 30, 30);
+    left: 40%;
+    top: 15px;  
+    width:80%;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+    <%-include('./css/adminpagecss.ejs') %>
+    <nav>
+        <div class="heading">
+            <h4> SALES PERSON  Manager Page </h4>   
+        </div>  
+        <ul class="nav-links">
+            <li><a  href="./adminpage">Add Product</a></li>
+            <li><a  class="active" href="./update_product">Update Product</a></li>
+            <li><a href="./selled">Selled </a></li>
+            <li>
+            <div class="dropdown">
+                <img src="img/user.png" alt="User_" width="50" height="50" class="dropbtn">
+                <div class="dropdown-content">
+                <a href="./changepassword">Change password</a>
+                <a href="#">change profile photo</a>
+                </div>
+            </li>
+        </ul>
+  </nav>
+   <% if(data) {%>
+        
+   
+    <div id="div1">
+        <form action="./update_product_verify"  method="POST">
+            <p id="idp" class="p"> Name:  <input type="text" name="name" id="id" class="in"  placeholder="<%=data.name%>"></p>
+ 
+            <p id="pricep" class="p"> Price : <input type="Number" name="price" id="id"  class="in"  placeholder="<%=data.price%>"> </p>
+
+            <p id="Amountp" class="p"> Amount : <input type="Number" name="amount" id="id"  class="in"  placeholder="<%=data.amount %>"> </p>
+            
+            <p id="Descriptiop" class="p"> Description : <textarea type="text" name="description" id="id"  class="in"  placeholder="<%=data.description %>"></textarea>
+            <button  type="submit" style="
+                position: relative;
+                width: 150px; height: 40px;
+                left:50%;
+                top:400px;
+                margin:10px;
+                background-color: chocolate;
+    "> Submit </button>
+        </form>
+
+    </div>
+    <%}%>
+    <div id="div2">
+        <form action="./update_select" method="POST" style="
+            position : absolute ;
+            color: white;
+            left: 20%;
+            top: 10%; ">ID:
+               <input type="Number" name="id" id="name"
+                style="position : absolute ;
+                color: rgb(168, 12, 12); left:40px"
+                required>
+                <button style="position: relative;
+                top :50px ;width:200px; height:30px; background-color: chocolate; ">EDIT</button>
+            </form>
+        <div style="position: relative ; top: 200px; width: 300px;height: 50px; background-color: rgb(232, 218, 155); color:red; ">
+            <h3 id="error" style="position: absolute; text-align: center; width: 70%; height: 70%; top: 10%;"><%=data.error%></h3>
+        </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            height:150%
+        }
+        #sign>h1{
+            position: absolute;
+            left: 20%;
+            
+            padding-left: 1%;
+            float: center;
+            color: rgb(241, 239, 237);
+            
+            border-radius: 2%;
+            background-color: rgb(164, 112, 32);;
+            width: 130px;
+            height: 40px;
+        }
+        #formdiv{
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width:70%;
+            height:70%;
+            border: 1px solid #8d4141;
+            
+        }
+       
+        #formdiv>form>p{
+            position: relative;
+            left: 10%;
+            width: 80%;
+            height: 40px;
+            font-style: normal;
+            /* border: 1px solid #7a0d0d; */
+        }
+        #formdiv>form>p>input{
+            position: absolute;
+            left: 15%;
+            width:300px;
+            
+        }
+        #formdiv>form>p>{
+            position: absolute;
+            left: 10%;
+            width:300px;
+            
+        }
+        #formdiv>form>button{
+            position: absolute;
+            background-color: rgb(92, 146, 22);
+            color: rgb(238, 235, 232);
+            width: 100px;
+            height: 40px;
+            border: 1px solid #8d4141;
+            border-radius: 1px;
+            right:10%
+        }
+        #submit:hover{
+            background-color: rgb(190, 114, 37);
+            color: rgb(246, 244, 242);
+        }
+        
+        
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="sign">
+        <h1 style=""> SignUp</h1>
+    </div>
+    <div id="formdiv">
+        <form action="/customer/customer_verify" method="POST">
+            <p>FirstName :  <input type="text" name="fname" id="fname"></p>
+            
+            <p>FatherName :<input type="text" name="lname" id="lname"></p>
+            
+            <p>email :<input type="email" name="email" id="email"></p>
+            
+            <p>password :<input type="password" id="password" name="password"></p>
+            
+            <p>Address :<input type="text" id="address" name="address"></p>
+            
+            <p>Gender :</p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="male">Female</label>
+            <p>PhoneNumber <input type="text" name="phone" id="phone"></p>
+            <button type="submit" id="submit"> Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
